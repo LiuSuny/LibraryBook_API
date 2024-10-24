@@ -1,0 +1,6 @@
+@LibraryBook_TaskAPI_HostAddress = http://localhost:5261
+
+GET {{LibraryBook_TaskAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

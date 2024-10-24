@@ -1,0 +1,34 @@
+Test task: Creating a CRUD service to manage a book library
+Task description
+Develop a simple RESTful API in .NET that will manage a book library.
+The service must support CRUD operations for books.
+Requirements
+Data model:
+A book must have the following properties:
+Id (unique identifier)
+Title (book title)
+Author (book author)
+PublishedYear (publication year)
+Genre (book genre)
+A book author must have the following properties:
+Id (unique identifier)
+FullName (full name)
+Birthday (birthday)
+API methods:
+GET /api/books - Get a list of all books.
+GET /api/books/{id} - Get a book by identifier.
+POST /api/books - Create a new book.
+PUT /api/books/{id} - Update book information.
+DELETE /api/books/{id} - Delete a book.
+GET /api/authors/ - Get a list of all authors.
+Data storage
+Any relational database
+Documentation generation
+For example, you can use Swagger
+
+Additional requirements
+Unit testing
+Error validation
+Field validation
+Design patterns
+Using CQRS + Mediator
