@@ -35,7 +35,7 @@ namespace LibraryBook_TaskAPI.Controllers
 
             var book = await _bookRepository.GetAllBooksAsync();
             var bookDto = _mapper.Map<List<BookDTO>>(book);
-            return Ok(book);
+            return Ok(bookDto);
         }
 
         [HttpGet]
@@ -61,7 +61,7 @@ namespace LibraryBook_TaskAPI.Controllers
 
         [HttpPost]
         [ValidateModel]
-        public async Task<ActionResult<Book>> CreateBook([FromBody] BookDTO createBookDTO)
+        public async Task<ActionResult> CreateBook([FromBody] BookDTO createBookDTO)
         {
             if (ModelState.IsValid)
             {

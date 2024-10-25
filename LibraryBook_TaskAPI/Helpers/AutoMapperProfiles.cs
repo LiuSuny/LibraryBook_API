@@ -9,7 +9,7 @@ namespace LibraryBook_TaskAPI.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<Book, BookDTO>().ReverseMap();
-            CreateMap<AuthorDTO, Author>().ReverseMap();
+            CreateMap<Author, AuthorDTO>().ReverseMap();
         }
     }
 }

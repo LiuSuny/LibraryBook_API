@@ -28,19 +28,19 @@ namespace LibraryBook_TaskAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Book>>> GetAllBooks()
+        public async Task<ActionResult<List<Book>>> GetAllAuthors()
         {
             //var author = await _authorRepository.GetAllAuthorsAsync();;
             //return Ok(author);
 
             var author = await _authorRepository.GetAllAuthorsAsync();
-            var bookDto = _mapper.Map<List<BookDTO>>(author);
+            var bookDto = _mapper.Map<List<AuthorDTO>>(author);
             return Ok(author);
         }
 
         [HttpGet]
         [Route("{id:Guid}")]
-        public async Task<ActionResult<Book>> GetBookbyId([FromRoute] Guid id)
+        public async Task<ActionResult<Book>> GetAuthorbyId([FromRoute] Guid id)
         {
             //var book = await _mediator.Send(_bookRepository.GetByIdAsync(id));
             //  return Ok(book);
@@ -61,7 +61,7 @@ namespace LibraryBook_TaskAPI.Controllers
 
         [HttpPost]
         [ValidateModel]
-        public async Task<ActionResult<Book>> CreateBook([FromBody] AuthorDTO authorDTO)
+        public async Task<ActionResult<Book>> CreateAuthor([FromBody] AuthorDTO authorDTO)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace LibraryBook_TaskAPI.Controllers
 
                 var authorDto = _mapper.Map<Author>(authorModel);
 
-                return CreatedAtAction(nameof(GetBookbyId), new { id = authorDto.Id }, authorDTO);
+                return CreatedAtAction(nameof(GetAuthorbyId), new { id = authorDto.Id }, authorDTO);
             }
 
             return BadRequest();
@@ -79,7 +79,7 @@ namespace LibraryBook_TaskAPI.Controllers
         [HttpPut]
         [Route("{id:Guid}")]
         [ValidateModel]
-        public async Task<IActionResult> UpdateBook(Guid id, [FromBody] AuthorDTO authorDTO)
+        public async Task<IActionResult> UpdateAuthor(Guid id, [FromBody] AuthorDTO authorDTO)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace LibraryBook_TaskAPI.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> DeleteBook(Guid id)
+        public async Task<IActionResult> DeleteAuthor(Guid id)
         {
             var authorModel = await _authorRepository.DeleteAsync(id);
             if (authorModel == null)
